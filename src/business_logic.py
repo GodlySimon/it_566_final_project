@@ -58,6 +58,3 @@ class BusinessLogic():
 		except Exception as e:
 			print(f'Exception in business logic: {e}')
 		return query_results
-
-
-	

@@ -3,6 +3,7 @@
 from business_logic import BusinessLogic
 from prettytable import PrettyTable
 import os
+from datetime import datetime
 
 class InventoryApp():
 	"""Implements household inventory control features."""
@@ -33,11 +34,11 @@ class InventoryApp():
 		"""Display menu."""
 		print('\t\t\tHousehold Inventory Application')
 		print()
-		print('\t\t1. New Inventory (Not Implemented)')
+		print('\t\t1. New Inventory')
 		print('\t\t2. List Inventories')
 		print('\t\t3. Select Inventory')
 		print('\t\t4. List Inventory Items')
-		print('\t\t5. Add Items (Not Implemented)')
+		print('\t\t5. Add Items')
 		print('\t\t6. Exit')
 		print()
 
@@ -70,8 +71,13 @@ class InventoryApp():
 		self.clear_screen()
 		if __debug__:
 			print('new_inventory() method called...')
-		input('\n\nThis method is not yet implemented. Press any key to continue: ')
-		
+			name = input("Enter a Product Name :  ")
+        description = input("Enter the Product Description : ")
+        today = datetime.now()
+        self.business_logic.create_new_inventory(name,description,today)
+        input(f'One row inserted successfully')
+		input('\n\nPress any key to continue...')
+
 
 	def list_inventories(self):
 		"""List inventories."""
@@ -109,11 +115,6 @@ class InventoryApp():
 			
 		
 
-		
-		
-		
-
-
 	def list_inventory_items(self):
 		"""List inventory items for inventory id contained in self.active_inventory_id field."""
 		self.clear_screen()
@@ -122,7 +123,12 @@ class InventoryApp():
 		items_list = self.business_logic.get_items_for_inventory_id(self.active_inventory_id)
 		self.print_items_list(items_list)
 		input('\n\nPress any key to continue...')
-		
+		#input('\n\vThis method is not yet implemented. Press any key to continue: ')
+        name = input("Enter Item Name :  ")
+        count = input("Enter the Count of Item : ")
+        inventory_id = input("Please to insert the Product Id:")
+        self.business_logic.create_new_item(inventory_id,name,count)
+        input(f'One row inserted successfully')
 
 	def add_items(self):
 		"""Add items to inventory."""
@@ -138,7 +144,7 @@ class InventoryApp():
 			self.display_menu()
 			self.process_menu_choice()
 			
-					
+			
 	def print_inventory_list(self, inv_list):
 		t = PrettyTable(['ID', 'Name', 'Description'])
 		for row in inv_list:
@@ -150,9 +156,3 @@ class InventoryApp():
 		for row in items_list:
 			t.add_row([row[0], row[1], row[2], row[3]])
 		print(t)
-
-
-
-		
-
-

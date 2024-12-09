@@ -50,7 +50,7 @@ class MySQLPersistenceWrapper(PersistenceWrapperInterface):
 
 	def create_inventory(self, name: str, description: str, date: str):
 		"""Insert new row into inventories table."""
-		pass
+			pass
 
 
 	def create_item(self, inventory_id: int, item: str, count: int):
@@ -66,6 +66,5 @@ class MySQLPersistenceWrapper(PersistenceWrapperInterface):
 		except Exception as e:
 			print(e)
 		return cnx
-
 
 
