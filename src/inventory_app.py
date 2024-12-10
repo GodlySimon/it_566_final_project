@@ -70,19 +70,11 @@ class InventoryApp():
         """Create new inventory."""     
         self.clear_screen()
         if __debug__:
-name = input("Enter a Product Name :  ")
+            print('new_inventory() method called...')
+        name = input("Enter a Product Name :  ")
         description = input("Enter the Product Description : ")
         today = datetime.now()
         self.business_logic.create_new_inventory(name,description,today)
-        input(f'One row inserted successfully')
- Old one was  
-input('\n\nThis method is not yet implemented. Press any key to continue: ')   Also added at line 131 #input('\n\vThis method is not yet implemented. Press any key to continue: ')
-        name = input("Enter Item Name :  ")
-        count = input("Enter the Count of Item : ")
-        inventory_id = input("Please to insert the Product Id:")
-        self.business_logic.create_new_item(inventory_id,name,count)
-        input(f'One row inserted successfully')
-
         input(f'One row inserted successfully')
         input('\n\nPress any key to continue...')
 
